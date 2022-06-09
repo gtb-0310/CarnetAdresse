@@ -1,39 +1,39 @@
-﻿using BookStoreApi.Models;
+﻿using CarnetAdresseApi.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 
-namespace BookStoreApi.Services;
+namespace CarnetAdresseApi.Services;
 
-public class BooksService
+public class PeopleService
 {
-    private readonly IMongoCollection<Book> _booksCollection;
+    private readonly IMongoCollection<Person> _peopleCollection;
 
-    public BooksService(
-        IOptions<BookStoreDatabaseSettings> bookStoreDatabaseSettings)
+    public PeopleService(
+        IOptions<CarnetAdresseDatabaseSettings> CarnetAdresseDatabaseSettings)
     {
         var mongoClient = new MongoClient(
-            bookStoreDatabaseSettings.Value.ConnectionString);
+            CarnetAdresseDatabaseSettings.Value.ConnectionString);
 
         var mongoDatabase = mongoClient.GetDatabase(
-            bookStoreDatabaseSettings.Value.DatabaseName);
+            CarnetAdresseDatabaseSettings.Value.DatabaseName);
 
-        _booksCollection = mongoDatabase.GetCollection<Book>(
-            bookStoreDatabaseSettings.Value.BooksCollectionName);
+        _peopleCollection = mongoDatabase.GetCollection<Person>(
+            CarnetAdresseDatabaseSettings.Value.PeopleCollectionName);
     }
 
-    public async Task<List<Book>> GetAsync() =>
-        await _booksCollection.Find(_ => true).ToListAsync();
+    public async Task<List<Person>> GetAsync() =>
+        await _peopleCollection.Find(_ => true).ToListAsync();
 
-    public async Task<Book?> GetAsync(string id) =>
-        await _booksCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    public async Task<Person?> GetAsync(string id) =>
+        await _peopleCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
-    public async Task CreateAsync(Book newBook) =>
-        await _booksCollection.InsertOneAsync(newBook);
+    public async Task CreateAsync(Person newPerson) =>
+        await _peopleCollection.InsertOneAsync(newPerson);
 
-    public async Task UpdateAsync(string id, Book updatedBook) =>
-        await _booksCollection.ReplaceOneAsync(x => x.Id == id, updatedBook);
+    public async Task UpdateAsync(string id, Person updatedPerson) =>
+        await _peopleCollection.ReplaceOneAsync(x => x.Id == id, updatedPerson);
 
     public async Task RemoveAsync(string id) =>
-        await _booksCollection.DeleteOneAsync(x => x.Id == id);
+        await _peopleCollection.DeleteOneAsync(x => x.Id == id);
 }

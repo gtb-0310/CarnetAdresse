@@ -1,56 +1,56 @@
-﻿using BookStoreApi.Models;
-using BookStoreApi.Services;
+﻿using CarnetAdresseApi.Models;
+using CarnetAdresseApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookStoreApi.Controllers;
+namespace CarnetAdresseApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BooksController : ControllerBase
+public class PeopleController : ControllerBase
 {
-    private readonly BooksService _booksService;
+    private readonly PeopleService _peopleService;
 
-    public BooksController(BooksService booksService) =>
-        _booksService = booksService;
+    public PeopleController(PeopleService peopleService) =>
+        _peopleService = peopleService;
 
     [HttpGet]
-    public async Task<List<Book>> Get() =>
-        await _booksService.GetAsync();
+    public async Task<List<Person>> Get() =>
+        await _peopleService.GetAsync();
 
     [HttpGet("{id:length(24)}")]
-    public async Task<ActionResult<Book>> Get(string id)
+    public async Task<ActionResult<Person>> Get(string id)
     {
-        var book = await _booksService.GetAsync(id);
+        var person = await _peopleService.GetAsync(id);
 
-        if (book is null)
+        if (person is null)
         {
             return NotFound();
         }
 
-        return book;
+        return person;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(Book newBook)
+    public async Task<IActionResult> Post(Person newPerson)
     {
-        await _booksService.CreateAsync(newBook);
+        await _peopleService.CreateAsync(newPerson);
 
-        return CreatedAtAction(nameof(Get), new { id = newBook.Id }, newBook);
+        return CreatedAtAction(nameof(Get), new { id = newPerson.Id }, newPerson);
     }
 
     [HttpPut("{id:length(24)}")]
-    public async Task<IActionResult> Update(string id, Book updatedBook)
+    public async Task<IActionResult> Update(string id, Person updatedPerson)
     {
-        var book = await _booksService.GetAsync(id);
+        var person = await _peopleService.GetAsync(id);
 
-        if (book is null)
+        if (person is null)
         {
             return NotFound();
         }
 
-        updatedBook.Id = book.Id;
+        updatedPerson.Id = person.Id;
 
-        await _booksService.UpdateAsync(id, updatedBook);
+        await _peopleService.UpdateAsync(id, updatedPerson);
 
         return NoContent();
     }
@@ -58,14 +58,14 @@ public class BooksController : ControllerBase
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {
-        var book = await _booksService.GetAsync(id);
+        var person = await _peopleService.GetAsync(id);
 
-        if (book is null)
+        if (person is null)
         {
             return NotFound();
         }
 
-        await _booksService.RemoveAsync(id);
+        await _peopleService.RemoveAsync(id);
 
         return NoContent();
     }

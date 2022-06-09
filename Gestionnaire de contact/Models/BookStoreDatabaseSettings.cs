@@ -1,10 +1,10 @@
-﻿namespace BookStoreApi.Models;
+﻿namespace CarnetAdresseApi.Models;
 
-public class BookStoreDatabaseSettings
+public class CarnetAdresseDatabaseSettings
 {
     public string ConnectionString { get; set; } = null!;
 
     public string DatabaseName { get; set; } = null!;
 
-    public string BooksCollectionName { get; set; } = null!;
+    public string PeopleCollectionName { get; set; } = null!;
 }
