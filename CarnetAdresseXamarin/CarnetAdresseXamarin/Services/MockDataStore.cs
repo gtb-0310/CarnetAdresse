@@ -53,7 +53,11 @@ namespace CarnetAdresseXamarin.Services
 
         public async Task<Person> GetItemAsync(string id)
         {
-            return await Task.FromResult(people.FirstOrDefault(s => s.Id == id));
+
+            HttpClient client = new HttpClient();
+            var oneClient = await client.GetStringAsync("http://localhost:5035/api/People/" + id);
+            return JsonConvert.DeserializeObject<Person>(oneClient);
+
         }
 
         public async Task<IEnumerable<Person>> GetItemsAsync(bool forceRefresh = false)
