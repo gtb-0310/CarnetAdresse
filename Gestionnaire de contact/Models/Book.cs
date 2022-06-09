@@ -9,12 +9,12 @@ public class Person
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
 
-    [BsonElement("Name")]
+    [BsonElement("LastName")]
     public string LastName { get; set; } = null!;
 
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = null!;
 
-    public int PhoneNumber { get; set; } = null!;
+    public int PhoneNumber { get; set; }
 
     public string Mail { get; set; } = null!;
 }
