@@ -17,7 +17,8 @@ namespace CarnetAdresseXamarin.Services
             /*
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
+                new Item { Id = Guid.NewGuid().ToString(), 
+            = "First item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
@@ -29,7 +30,13 @@ namespace CarnetAdresseXamarin.Services
 
         public async Task<bool> AddItemAsync(Person item)
         {
-            people.Add(item);
+            string newPerson = JsonConvert.SerializeObject(item);
+            StringContent content = new StringContent(newPerson);
+            HttpClient client = new HttpClient();
+            string url = "http://localhost:5035/api/People";
+            client.BaseAddress = new Uri(url);
+            await client.PostAsync("http://localhost:5035/api/People", content);
+
 
             return await Task.FromResult(true);
         }
@@ -45,9 +52,8 @@ namespace CarnetAdresseXamarin.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldPerson = people.Where((Person arg) => arg.Id == id).FirstOrDefault();
-            people.Remove(oldPerson);
-
+            HttpClient client = new HttpClient();
+            await client.DeleteAsync("http://localhost:5035/api/People/" + id);
             return await Task.FromResult(true);
         }
 

@@ -12,6 +12,7 @@ namespace CarnetAdresseXamarin.ViewModels
     {
         private Person _selectedItem;
 
+
         public ObservableCollection<Person> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
@@ -19,6 +20,7 @@ namespace CarnetAdresseXamarin.ViewModels
 
         public ItemsViewModel()
         {
+            
             Title = "Browse";
             Items = new ObservableCollection<Person>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -26,8 +28,9 @@ namespace CarnetAdresseXamarin.ViewModels
             ItemTapped = new Command<Person>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
+            
         }
-
+        
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;

@@ -11,6 +11,8 @@ namespace CarnetAdresseXamarin.ViewModels
     {
         private string text;
         private string description;
+        private string mail;
+        private int phone;
 
         public NewItemViewModel()
         {
@@ -23,7 +25,10 @@ namespace CarnetAdresseXamarin.ViewModels
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+                && !String.IsNullOrWhiteSpace(description)
+                && !String.IsNullOrWhiteSpace(mail);
+                
+
         }
 
         public string Text
@@ -36,6 +41,18 @@ namespace CarnetAdresseXamarin.ViewModels
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+
+        public string Mail
+        {
+            get => mail;
+            set => SetProperty(ref mail, value);
+        }
+
+        public int PhoneNumber
+        {
+            get => phone;
+            set => SetProperty(ref phone, value);
         }
 
         public Command SaveCommand { get; }
@@ -52,11 +69,12 @@ namespace CarnetAdresseXamarin.ViewModels
             Person newItem = new Person()
             {
                 Id = Guid.NewGuid().ToString(),
-                FirstName = Text,
-                LastName = Description,
-                PhoneNumber = 0,
-                Mail = "TestMail"
+                FirstName = Description,
+                LastName = Text,
+                PhoneNumber = PhoneNumber,
+                Mail = Mail
             };
+            
 
             await DataStore.AddItemAsync(newItem);
 

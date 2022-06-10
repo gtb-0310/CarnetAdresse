@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace CarnetAdresseXamarin.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
+    public class UpdateItemViewModel : BaseViewModel
     {
         
 
@@ -20,37 +20,22 @@ namespace CarnetAdresseXamarin.ViewModels
         private string mail;
         private int phone;
 
-        public Command DeleteItemCommand { get; }
-        public Command UpdateItemCommand { get; set; }
+        
+        
 
 
         public string Id { get; set; }
         
-       public ItemDetailViewModel()
+       public UpdateItemViewModel()
        {
-            UpdateItemCommand = new Command(OnUpdateItem);
-
-            DeleteItemCommand = new Command(OnDeleteItem);
+            
             
            return;
 
        }
+
+
        
-
-
-        private async void OnDeleteItem(object obj)
-       {
-          
-          await DataStore.DeleteItemAsync(ItemId);
-
-       }
-
-        private async void OnUpdateItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
-
 
         public string Text
         {
@@ -105,7 +90,5 @@ namespace CarnetAdresseXamarin.ViewModels
                 Debug.WriteLine("Failed to Load Item");
             }
         }
-
-        
     }
 }
