@@ -15,10 +15,10 @@ namespace CarnetAdresseXamarin.ViewModels
         
 
         private string itemId;
-        private string text;
-        private string description;
+        private string firstName;
+        private string lastName;
         private string mail;
-        private int phone;
+        private int phoneNumber;
 
         public Command DeleteItemCommand { get; }
         public Command UpdateItemCommand { get; set; }
@@ -52,16 +52,16 @@ namespace CarnetAdresseXamarin.ViewModels
 
 
 
-        public string Text
+        public string FirstName
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => firstName;
+            set => SetProperty(ref firstName, value);
         }
 
-        public string Description
+        public string LastName
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => lastName;
+            set => SetProperty(ref lastName, value);
         }
 
         public string Mail
@@ -72,8 +72,8 @@ namespace CarnetAdresseXamarin.ViewModels
 
         public int PhoneNumber
         {
-            get => phone;
-            set => SetProperty(ref phone, value);
+            get => phoneNumber;
+            set => SetProperty(ref phoneNumber, value);
         }
 
         public string ItemId
@@ -95,8 +95,8 @@ namespace CarnetAdresseXamarin.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Text = item.FirstName;
-                Description = item.LastName;
+                FirstName = item.FirstName;
+                LastName = item.LastName;
                 Mail = item.Mail;
                 PhoneNumber = item.PhoneNumber;
             }

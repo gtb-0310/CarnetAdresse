@@ -9,10 +9,10 @@ namespace CarnetAdresseXamarin.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        private string firstName;
+        private string lastName;
         private string mail;
-        private int phone;
+        private int phoneNumber;
 
         public NewItemViewModel()
         {
@@ -24,23 +24,23 @@ namespace CarnetAdresseXamarin.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description)
+            return !String.IsNullOrWhiteSpace(firstName)
+                && !String.IsNullOrWhiteSpace(lastName)
                 && !String.IsNullOrWhiteSpace(mail);
                 
 
         }
 
-        public string Text
+        public string FirstName
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => firstName;
+            set => SetProperty(ref firstName, value);
         }
 
-        public string Description
+        public string LastName
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => lastName;
+            set => SetProperty(ref lastName, value);
         }
 
         public string Mail
@@ -51,8 +51,8 @@ namespace CarnetAdresseXamarin.ViewModels
 
         public int PhoneNumber
         {
-            get => phone;
-            set => SetProperty(ref phone, value);
+            get => phoneNumber;
+            set => SetProperty(ref phoneNumber, value);
         }
 
         public Command SaveCommand { get; }
@@ -68,9 +68,9 @@ namespace CarnetAdresseXamarin.ViewModels
         {
             Person newItem = new Person()
             {
-                Id = Guid.NewGuid().ToString(),
-                FirstName = Description,
-                LastName = Text,
+                
+                FirstName = FirstName,
+                LastName = LastName,
                 PhoneNumber = PhoneNumber,
                 Mail = Mail
             };

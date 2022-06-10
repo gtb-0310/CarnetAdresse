@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarnetAdresseXamarin.Services
 {
@@ -31,21 +32,18 @@ namespace CarnetAdresseXamarin.Services
         public async Task<bool> AddItemAsync(Person item)
         {
             string newPerson = JsonConvert.SerializeObject(item);
-            StringContent content = new StringContent(newPerson);
+            StringContent content = new StringContent(newPerson, Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
             string url = "http://localhost:5035/api/People";
-            client.BaseAddress = new Uri(url);
-            await client.PostAsync("http://localhost:5035/api/People", content);
-
+            await client.PostAsync(url, content);
+            
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateItemAsync(Person item)
         {
-            var oldPerson = people.Where((Person arg) => arg.Id == item.Id).FirstOrDefault();
-            people.Remove(oldPerson);
-            people.Add(item);
+            
 
             return await Task.FromResult(true);
         }
