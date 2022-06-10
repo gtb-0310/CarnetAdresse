@@ -45,9 +45,11 @@ namespace CarnetAdresseXamarin.ViewModels
 
        }
 
-        private async void OnUpdateItem(object obj)
+        private async void OnUpdateItem()
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            Person newPerson = new Person { Id = itemId, FirstName = firstName, LastName = lastName, PhoneNumber = phoneNumber, Mail = mail };
+            await DataStore.UpdateItemAsync(newPerson);
+            await Shell.Current.GoToAsync("..");
         }
 
 

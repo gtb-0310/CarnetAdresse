@@ -13,13 +13,13 @@
     
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Nom:" FontSize="Medium" />
-        <Label Text="{Binding LastName}" FontSize="Small"/>
+        <Entry Text="{Binding LastName}" FontSize="Small"/>
         <Label Text="Prénom:" FontSize="Medium" />
-        <Label Text="{Binding FirstName}" FontSize="Small"/>
+        <Entry Text="{Binding FirstName}" FontSize="Small"/>
         <Label Text="Mail:" FontSize="Medium" />
-        <Label Text="{Binding Mail}" FontSize="Small"/>
+        <Entry Text="{Binding Mail}" FontSize="Small"/>
         <Label Text="Numéro de téléphone:" FontSize="Medium" />
-        <Label Text="{Binding PhoneNumber}" FontSize="Small"/>
+        <Entry Text="{Binding PhoneNumber}" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>

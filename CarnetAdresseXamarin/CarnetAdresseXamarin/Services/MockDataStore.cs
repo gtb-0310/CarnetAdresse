@@ -12,6 +12,7 @@ namespace CarnetAdresseXamarin.Services
     public class MockDataStore : IDataStore<Person>
     {
         readonly List<Person> people;
+        string url = "http://localhost:5035/api/People";
 
         public MockDataStore()
         {
@@ -34,7 +35,6 @@ namespace CarnetAdresseXamarin.Services
             string newPerson = JsonConvert.SerializeObject(item);
             StringContent content = new StringContent(newPerson, Encoding.UTF8, "application/json");
             HttpClient client = new HttpClient();
-            string url = "http://localhost:5035/api/People";
             await client.PostAsync(url, content);
             
 
@@ -43,6 +43,11 @@ namespace CarnetAdresseXamarin.Services
 
         public async Task<bool> UpdateItemAsync(Person item)
         {
+            string personToUpdate = JsonConvert.SerializeObject(item);
+            string urlUpdate = url + "/" + item.Id;
+            StringContent content = new StringContent(personToUpdate, Encoding.UTF8, "application/json");
+            HttpClient client = new HttpClient();
+            await client.PutAsync(urlUpdate, content);
             
 
             return await Task.FromResult(true);
