@@ -1,11 +1,7 @@
 ﻿using CarnetAdresseXamarin.Models;
-using CarnetAdresseXamarin.Views;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace CarnetAdresseXamarin.ViewModels
 {
@@ -42,6 +38,7 @@ namespace CarnetAdresseXamarin.ViewModels
        {
           
           await DataStore.DeleteItemAsync(ItemId);
+            await Shell.Current.GoToAsync("..");
 
        }
 
