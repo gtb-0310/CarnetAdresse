@@ -21,7 +21,7 @@ namespace CarnetAdresseXamarin.ViewModels
         public ItemsViewModel()
         {
             
-            Title = "Browse";
+            Title = "Contacts";
             Items = new ObservableCollection<Person>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

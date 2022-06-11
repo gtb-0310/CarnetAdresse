@@ -12,7 +12,8 @@ namespace CarnetAdresseXamarin.Services
     public class MockDataStore : IDataStore<Person>
     {
         readonly List<Person> people;
-        string url = "http://localhost:5035/api/People";
+        string url = "http://localhost:5035/api/People/";
+        HttpClient client = new HttpClient();
 
         public MockDataStore()
         {
@@ -32,51 +33,74 @@ namespace CarnetAdresseXamarin.Services
 
         public async Task<bool> AddItemAsync(Person item)
         {
-            string newPerson = JsonConvert.SerializeObject(item);
-            StringContent content = new StringContent(newPerson, Encoding.UTF8, "application/json");
-            HttpClient client = new HttpClient();
-            await client.PostAsync(url, content);
+            var newPerson = JsonConvert.SerializeObject(item);
+            var content = new StringContent(newPerson, Encoding.UTF8, "application/json");
+            var testAdd = await client.PostAsync(url, content);
+            if (testAdd.IsSuccessStatusCode)
+            {
+                return await Task.FromResult(true);
+            }
+            return await Task.FromResult(false);
+   
             
-
-            return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateItemAsync(Person item)
         {
-            string personToUpdate = JsonConvert.SerializeObject(item);
-            string urlUpdate = url + "/" + item.Id;
-            StringContent content = new StringContent(personToUpdate, Encoding.UTF8, "application/json");
-            HttpClient client = new HttpClient();
-            await client.PutAsync(urlUpdate, content);
+            var personToUpdate = JsonConvert.SerializeObject(item);
+            var urlUpdate = url + item.Id;
+            var content = new StringContent(personToUpdate, Encoding.UTF8, "application/json");
+            var testUpdate = await client.PutAsync(urlUpdate, content);
+            if (testUpdate.IsSuccessStatusCode)
+            {
+                return await Task.FromResult(true);
+            }
+            return await Task.FromResult(false); ;
             
 
-            return await Task.FromResult(true);
+            
         }
 
         public async Task<bool> DeleteItemAsync(string id)
         {
             HttpClient client = new HttpClient();
-            await client.DeleteAsync("http://localhost:5035/api/People/" + id);
-            return await Task.FromResult(true);
+            var testDelete = await client.DeleteAsync(url + id);
+            if (testDelete.IsSuccessStatusCode)
+            {
+                return await Task.FromResult(true);
+            }
+            return await Task.FromResult(false); ;
+           
         }
 
         public async Task<Person> GetItemAsync(string id)
         {
-
-            HttpClient client = new HttpClient();
-            var oneClient = await client.GetStringAsync("http://localhost:5035/api/People/" + id);
-            return JsonConvert.DeserializeObject<Person>(oneClient);
+            var person=new Person();
+            HttpResponseMessage response = await client.GetAsync(url + id);
+            if (response.IsSuccessStatusCode)
+            {
+                string content = response.Content.ReadAsStringAsync().Result;
+                person = JsonConvert.DeserializeObject<Person>(content);
+            }
+            return await Task.FromResult(person);
+            
+           
 
         }
 
         public async Task<IEnumerable<Person>> GetItemsAsync(bool forceRefresh = false)
         {
-            HttpClient client = new HttpClient();
-            var allClients = await client.GetStringAsync("http://localhost:5035/api/People");
-            return JsonConvert.DeserializeObject<List<Person>>(allClients);
-           
-            
-            
+            var personList = new List<Person>();
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                string content = response.Content.ReadAsStringAsync().Result;
+                personList = JsonConvert.DeserializeObject<List<Person>>(content);
+            }
+            return await Task.FromResult(personList);
+
+
+
         }
     }
 }
