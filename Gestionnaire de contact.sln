@@ -11,7 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarnetAdresseXamarin.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarnetAdresseXamarin.iOS", "CarnetAdresseXamarin\CarnetAdresseXamarin.iOS\CarnetAdresseXamarin.iOS.csproj", "{334FEFDB-B5E7-4F6E-A5A4-D4D68D8F6E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarnetAdresseXamarin", "CarnetAdresseXamarin\CarnetAdresseXamarin\CarnetAdresseXamarin.csproj", "{436D9C85-DE38-4F45-A451-6849DB83F226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarnetAdresseXamarin", "CarnetAdresseXamarin\CarnetAdresseXamarin\CarnetAdresseXamarin.csproj", "{436D9C85-DE38-4F45-A451-6849DB83F226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCarnetAdresse", "TestCarnetAdresse\TestCarnetAdresse.csproj", "{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{334FEFDB-B5E7-4F6E-A5A4-D4D68D8F6E26} = {334FEFDB-B5E7-4F6E-A5A4-D4D68D8F6E26}
+		{3752832C-B034-48EF-800A-9764AA0B173D} = {3752832C-B034-48EF-800A-9764AA0B173D}
+		{3AF8C8F7-B2EE-4F91-A97E-5E5448B52EE2} = {3AF8C8F7-B2EE-4F91-A97E-5E5448B52EE2}
+		{436D9C85-DE38-4F45-A451-6849DB83F226} = {436D9C85-DE38-4F45-A451-6849DB83F226}
+		{7BDBC5A9-5AD4-4D6F-A5CA-C8A07A1D8FE2} = {7BDBC5A9-5AD4-4D6F-A5CA-C8A07A1D8FE2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +182,30 @@ Global
 		{436D9C85-DE38-4F45-A451-6849DB83F226}.Release|x64.Build.0 = Release|Any CPU
 		{436D9C85-DE38-4F45-A451-6849DB83F226}.Release|x86.ActiveCfg = Release|Any CPU
 		{436D9C85-DE38-4F45-A451-6849DB83F226}.Release|x86.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|x64.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|ARM.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|iPhone.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|x64.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|x64.Build.0 = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF17ABFC-0BA0-47B3-A0FB-FA23D8B453C7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
