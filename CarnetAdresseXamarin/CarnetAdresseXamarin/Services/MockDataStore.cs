@@ -1,8 +1,6 @@
 ﻿/*************** Appels à des librairies de fonctions ou à d'autres pages ***************/
 using CarnetAdresseXamarin.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -13,7 +11,6 @@ namespace CarnetAdresseXamarin.Services
 {
     public class MockDataStore : IDataStore<Person>
     {
-        readonly List<Person> people;
         //Je déclare d'abord mes variables pour pouvoir les utiliser directement dans le code et éviter les répititions
         string url = "http://localhost:5035/api/People/";
         HttpClient client = new HttpClient();
@@ -34,8 +31,6 @@ namespace CarnetAdresseXamarin.Services
                 return await Task.FromResult(true); //...on confirme la méthode d'ajout, sinon...
             }
             return await Task.FromResult(false); //...on annule.
-
-
         }
 
         //Méthode de mise à jour d'un contact présent dans la DB
@@ -50,9 +45,6 @@ namespace CarnetAdresseXamarin.Services
                 return await Task.FromResult(true); //...on confirme la méthode de mise à jour, sinon...
             }
             return await Task.FromResult(false); //... on annule.
-
-
-
         }
 
         //Méthode de suppression d'un contact dans la DB
@@ -63,8 +55,7 @@ namespace CarnetAdresseXamarin.Services
             {
                 return await Task.FromResult(true); //...on confirme la méthode de suppression, sinon...
             }
-            return await Task.FromResult(false); //...on annule.
-           
+            return await Task.FromResult(false); //...on annule.          
         }
 
         //Méthode de récupération d'un contact

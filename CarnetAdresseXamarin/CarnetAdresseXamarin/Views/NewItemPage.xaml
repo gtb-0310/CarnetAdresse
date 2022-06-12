@@ -17,8 +17,8 @@
             <Label Text="Numéro de téléphone" FontSize="Medium" />
             <Entry Text="{Binding PhoneNumber, Mode=TwoWay}" FontSize="Medium" />
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Précédent" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="White"></Button>
+                <Button Text="Enregistrer" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" BackgroundColor="White"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

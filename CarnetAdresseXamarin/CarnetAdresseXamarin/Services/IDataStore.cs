@@ -1,5 +1,4 @@
 ﻿/*************** Appels à des librairies de fonctions ou à d'autres pages ***************/
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
