@@ -1,7 +1,5 @@
-﻿using CarnetAdresseXamarin.ViewModels;
-using CarnetAdresseXamarin.Views;
+﻿using CarnetAdresseXamarin.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace CarnetAdresseXamarin
