@@ -18,4 +18,4 @@ Et laisser l'invité de commande ouvert durant l'utilisation de l'application!
 
 5) Avant de run l'application, s'assurer que l'Api et le projet UWP run au démarrage: dans l'explorateur de solutions, clic droit sur la solution ==> gérer les projets de démarrage ==> cocher "BookStoreApi" et "CarnetAdresseXamarin"
 
-6) Pour les tests d'intégration, il est important de récupérer l'ID en brut!
+6) Pour les tests d'intégration, il est important de récupérer l'ID d'une des entrées de la DB en brut!

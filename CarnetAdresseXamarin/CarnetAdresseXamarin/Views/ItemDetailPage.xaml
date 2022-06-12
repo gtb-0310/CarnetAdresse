@@ -6,8 +6,8 @@
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete" Command="{Binding DeleteItemCommand}" />
-        <ToolbarItem Text="Update" Command="{Binding UpdateItemCommand}" />
+        <ToolbarItem Text="Supprimer" Command="{Binding DeleteItemCommand}" />
+        <ToolbarItem Text="Mettre à jour" Command="{Binding UpdateItemCommand}" />
     </ContentPage.ToolbarItems>
 
     
