@@ -1,5 +1,4 @@
 ﻿using CarnetAdresseXamarin.ViewModels;
-using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace CarnetAdresseXamarin.Views

@@ -1,8 +1,5 @@
 ﻿using CarnetAdresseXamarin.Services;
-using CarnetAdresseXamarin.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CarnetAdresseXamarin
 {

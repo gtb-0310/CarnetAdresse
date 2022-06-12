@@ -1,6 +1,5 @@
 using CarnetAdresseXamarin.ViewModels;
-using CarnetAdresseXamarin.Services;
-using CarnetAdresseXamarin.Models;
+
 
 
 namespace TestCarnetAdresse

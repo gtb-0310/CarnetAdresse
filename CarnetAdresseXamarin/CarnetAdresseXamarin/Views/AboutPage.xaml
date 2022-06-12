@@ -29,7 +29,7 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Gestionnaire de contacts" FontSize="Title" HorizontalOptions="Center"/>
+                <Label Text="Gestionnaire de contacts" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold"/>
                 <Label Text="Accédez à votre liste de contacts via l'onglet déroulant à gauche" FontSize="16" Padding="0,0,0,0" HorizontalOptions="Center"/>
             </StackLayout>
         </ScrollView>
