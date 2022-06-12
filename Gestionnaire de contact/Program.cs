@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); On commente cette ligne car on utilise des requêtes HTTP, et non HTTPS
 
 app.UseAuthorization();
 

@@ -1,7 +1,9 @@
-﻿using System;
+﻿/*************** Appels à des librairies de fonctions ou à d'autres pages ***************/
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+/*************** Interface de nos fonctions interagissant avec l'API. Uniquement la signature des contrats ***************/
 namespace CarnetAdresseXamarin.Services
 {
     public interface IDataStore<T>

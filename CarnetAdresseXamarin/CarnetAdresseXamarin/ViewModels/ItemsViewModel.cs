@@ -1,4 +1,5 @@
-﻿using CarnetAdresseXamarin.Models;
+﻿/*************** Appels à des librairies de fonctions ou à d'autres pages ***************/
+using CarnetAdresseXamarin.Models;
 using CarnetAdresseXamarin.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -6,17 +7,18 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+/*************** Contenu ***************/
 namespace CarnetAdresseXamarin.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
         private Person _selectedItem;
-
-
         public ObservableCollection<Person> Items { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Person> ItemTapped { get; }
+        
+        //On déclare nos boutons
+        public Command LoadItemsCommand { get; } //Bouton d'affichage de tous nos contacts
+        public Command AddItemCommand { get; } //Bouton d'ajout d'un contact
+        public Command<Person> ItemTapped { get; } //Contact sur lequel on clique
 
         public ItemsViewModel()
         {
@@ -70,17 +72,18 @@ namespace CarnetAdresseXamarin.ViewModels
             }
         }
 
+        //Action lors du clic sur le bouton "Add"
         private async void OnAddItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            await Shell.Current.GoToAsync(nameof(NewItemPage)); //Redirection vers la page de création d'un nouveau contact
         }
 
+        //Action lors du clic sur un contact
         async void OnItemSelected(Person item)
         {
             if (item == null)
                 return;
-
-            // This will push the ItemDetailPage onto the navigation stack
+            //On regarde s'il y a des contacts affichés. Si c'est le cas, on redirige vers la page du contact contenant l'ID ciblé
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }
     }
